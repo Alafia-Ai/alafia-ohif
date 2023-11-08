@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  ohif:
+    image: docker.io/library/alafia-ohif:latest
+    container_name: ohif-viewer
+    platform: "linux/amd64" # TODO: Port to arm64
+    volumes:
+      - /opt/alafia-ai/alafia-ohif/build/ohif-config.js:/usr/share/nginx/html/app-config.js
+      - /opt/alafia-ai/alafia-ohif/build/alafiaLogo.svg:/usr/share/nginx/html/alafiaLogo.svg
+    networks:
+      - caddy
+    ports:
+      - 3000:80
+    labels:
+      caddy: ohif.alafia
+      caddy.reverse_proxy: "{{upstreams 3069}}"
+      caddy.tls: "internal"
+
+networks:
+  caddy:
+    external: true
