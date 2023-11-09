@@ -35,7 +35,7 @@ install:
 	else \
 		echo "Installing systemd service..." && \
 		sudo cp $(DEPLOY_PATH)/$(SERVICE_FILE) /etc/systemd/system/ && \
-		sudo systemctl enable --now $(SERVICE_FILE) && \
+		sudo systemctl enable $(SERVICE_FILE) && \
 		echo "Systemd service installed and started successfully."; \
 	fi
 
