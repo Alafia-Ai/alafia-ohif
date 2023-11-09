@@ -1,6 +1,6 @@
 APP_NAME           := alafia-ohif
 HOST_NAME          := ohif.alafia
-HOST_IP            := 127.0.0.q
+HOST_IP            := 127.0.0.1
 #DOCKER_PLATFORM    := linux/arm64
 DOCKER_PLATFORM    := linux/amd64
 DOCKER_IMAGE_NAME  := $(APP_NAME)
